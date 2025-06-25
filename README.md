@@ -8,7 +8,7 @@ This project demonstrates a serverless web application that converts user-submit
 ![arc_diagram](https://github.com/user-attachments/assets/41881f01-638e-4453-91f8-a0d675671a30)
 
 **## 📁 Project Structure**
-.
+
 ├── serverless-web/
 │ ├── index.html  # Main Web UI
 │ ├── styles.css  # Styles for the UI

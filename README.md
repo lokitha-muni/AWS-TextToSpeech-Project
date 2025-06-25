@@ -80,9 +80,18 @@ This project demonstrates a serverless web application that converts user-submit
 
 ## 📸 Screenshots
 
-> 📌 **Add your screenshots here**  
-> Place them in a `screenshots` or `assets` folder in your repo, then link them like below:
+![Screenshot 2025-06-25 111118](https://github.com/user-attachments/assets/b7db598a-c039-4ecb-aee7-b713af10d3e0)
+![Screenshot 2025-06-25 111145](https://github.com/user-attachments/assets/5ab79cec-5c27-4176-9779-60d3a279d206)
 
-```markdown
-![App UI Screenshot](./screenshots/ui_home.png)
-![Audio Output Example](./screenshots/audio_example.png)
+## 📝 Notes
+
+- Make sure all AWS services (Lambda, DynamoDB, S3, SNS, Polly) are deployed in the **`us-east-1`** region for seamless integration.
+- This application is built for **educational and demonstration** purposes. It is not production-hardened.
+- Before deploying publicly, consider the following improvements:
+  - **Input validation** to prevent abuse or invalid submissions.
+  - **Error handling** in Lambda functions and frontend (e.g., retries, alerts).
+  - **Security best practices**:
+    - Use fine-grained **IAM roles** and least privilege access.
+    - Avoid public access to sensitive data in S3 or DynamoDB.
+    - Enable **CloudWatch logging** and alarms for monitoring.
+  - Set up **billing alerts** to monitor usage and avoid unexpected costs.

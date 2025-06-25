@@ -7,17 +7,18 @@ This project demonstrates a serverless web application that converts user-submit
 ## 🖼️ Architecture Diagram
 ![arc_diagram](https://github.com/user-attachments/assets/41881f01-638e-4453-91f8-a0d675671a30)
 
+**## 📁 Project Structure**
 .
 ├── serverless-web/
-│   ├── index.html          # Main Web UI
-│   ├── styles.css          # Styles for the UI
-│   ├── scripts.js          # Frontend logic
-│   └── error.html          # Error page
-├── add_new_posts.py        # Lambda: Handle new submissions
-├── convert_text_to_audio.py# Lambda: Convert text to audio
-├── read_table_items.py     # Lambda: Fetch all posts
-├── arc_diagram.png         # (Optional) Architecture diagram image
-└── README.md               # Project documentation
+│ ├── index.html  # Main Web UI
+│ ├── styles.css  # Styles for the UI
+│ ├── scripts.js  # Frontend logic
+│ └── error.html  # Error page
+├── add_new_posts.py  # Lambda: Handle new submissions
+├── convert_text_to_audio.py  # Lambda: Convert text to audio
+├── read_table_items.py  # Lambda: Fetch all posts
+├── arc_diagram.png  # Architecture diagram image
+└── README.md  # Project documentation
 
 ## ⚙️ AWS Components Used
 

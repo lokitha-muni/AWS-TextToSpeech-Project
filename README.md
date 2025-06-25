@@ -6,3 +6,83 @@ This project demonstrates a serverless web application that converts user-submit
 
 ## 🖼️ Architecture Diagram
 ![arc_diagram](https://github.com/user-attachments/assets/41881f01-638e-4453-91f8-a0d675671a30)
+
+.
+├── serverless-web/
+│   ├── index.html          # Main Web UI
+│   ├── styles.css          # Styles for the UI
+│   ├── scripts.js          # Frontend logic
+│   └── error.html          # Error page
+├── add_new_posts.py        # Lambda: Handle new submissions
+├── convert_text_to_audio.py# Lambda: Convert text to audio
+├── read_table_items.py     # Lambda: Fetch all posts
+├── arc_diagram.png         # (Optional) Architecture diagram image
+└── README.md               # Project documentation
+
+## ⚙️ AWS Components Used
+
+### Frontend
+
+- `index.html`, `styles.css`, `scripts.js`
+- Provides a UI for:
+  - Text input
+  - Voice selection
+  - Result display (audio player)
+
+### Backend (AWS Services)
+
+- **API Gateway**  
+  Exposes REST API endpoints for the frontend to interact with Lambda functions.
+
+- **AWS Lambda**
+  - `add_new_posts.py`: Handles form submissions, stores the data in DynamoDB, and triggers an SNS topic.
+  - `convert_text_to_audio.py`: Triggered by SNS, reads the text from DynamoDB, uses Polly to synthesize speech, stores the MP3 in S3, and updates DynamoDB with the audio URL.
+  - `read_table_items.py`: Reads all items from DynamoDB for frontend display.
+
+- **Amazon DynamoDB**  
+  Stores user-submitted text, voice selection, status (e.g., "Pending", "Completed"), and the audio URL.
+
+- **Amazon SNS (Simple Notification Service)**  
+  Publishes a message when new text is submitted, triggering the conversion Lambda asynchronously.
+
+- **Amazon Polly**  
+  Converts submitted text into speech using the selected voice.
+
+- **Amazon S3 (Simple Storage Service)**  
+  Stores the generated MP3 files and serves them publicly for streaming or download.
+
+## 🚀 How to Use
+
+1. **Deploy the Backend**
+   - Set up the following AWS services manually or using tools like AWS Console, SAM, or CDK:
+     - Lambda functions: `add_new_posts.py`, `convert_text_to_audio.py`, `read_table_items.py`
+     - DynamoDB table to store user data and audio URLs
+     - SNS topic to trigger the audio conversion Lambda
+     - S3 bucket to store the generated MP3 files
+     - API Gateway to expose REST endpoints for Lambda functions
+
+2. **Configure Environment Variables for Lambda Functions**
+   Each Lambda function should have these environment variables set:
+   - `DB_TABLE_NAME`: Your DynamoDB table name
+   - `BUCKET_NAME`: Your S3 bucket name
+   - `SNS_TOPIC`: Your SNS topic ARN
+
+3. **Serve the Frontend**
+   - Place the `serverless-web/` folder (which contains `index.html`, `styles.css`, `scripts.js`, and `error.html`) in an S3 bucket with static website hosting enabled **OR**
+   - Serve locally using a simple HTTP server like:
+     ```bash
+     python -m http.server
+     ```
+
+4. **Use the Application**
+   - Open the hosted frontend
+   - Select a v
+
+## 📸 Screenshots
+
+> 📌 **Add your screenshots here**  
+> Place them in a `screenshots` or `assets` folder in your repo, then link them like below:
+
+```markdown
+![App UI Screenshot](./screenshots/ui_home.png)
+![Audio Output Example](./screenshots/audio_example.png)

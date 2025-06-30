@@ -1,4 +1,4 @@
-var API_ENDPOINT = "https://1sz056mhs5.execute-api.us-east-1.amazonaws.com/dev/data"
+var API_ENDPOINT = "API KEY"
 
 // Process button click handler
 document.getElementById("sayButton").onclick = function(){
